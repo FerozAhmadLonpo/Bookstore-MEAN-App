@@ -1,0 +1,62 @@
+<button [routerLink]="['/books']" routerLinkActive="router-link-active" class="btn-secondary m-2 px-3 text-lg-center">Go
+  Back</button>
+
+<div class="card">
+  <div class="card-header bg-primary mb-2">
+    <h3 class="card-title text-white">Add Book</h3>
+  </div>
+  <hr>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-12">
+        <form #bookForm="ngForm" (ngSubmit)="onSaveSubmit()">
+          <div class="form-group">
+            <h3 class="form-control text-danger" [class.d-none]="!validationFailed">Please fill all fields</h3>
+          </div>
+          <div class="form-group">
+            <label>Title</label>
+            <input required type="text" [(ngModel)]="book.title" name="title" class="form-control" placeholder="Title">
+          </div>
+          <div class="form-group">
+            <label>Genre</label>
+            <select name="genre" id="" class="form-control" [(ngModel)]="book.genre">
+              <option value="Suspense">Suspense</option>
+              <option value="Drama">Drama</option>
+              <option value="Romance">Romance</option>
+              <option value="NonFiction">NonFiction</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Author</label>
+            <input type="text" [(ngModel)]="book.author" name="author" class="form-control" placeholder="Author">
+          </div>
+          <div class="form-group">
+            <label>Publisher</label>
+            <input type="text" [(ngModel)]="book.publisher" name="publisher" class="form-control"
+              placeholder="Publisher">
+          </div>
+          <div class="from-group">
+            <label>Pages</label>
+            <input type="text" [(ngModel)]="book.pages" name="pages" class="form-control" placeholder="Pages">
+          </div>
+          <div class="form-group">
+            <label>Description</label>
+            <textarea class="form-control" [(ngModel)]="book.description" name="description"
+              placeholder="Descrpition"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Image URL</label>
+            <input type="text" [(ngModel)]="book.image_url" name="image_url" class="form-control"
+              placeholder="Image URL">
+          </div>
+          <div class="form-group">
+            <label>Buy URL</label>
+            <input type="text" [(ngModel)]="book.buy_url" name="buy_url" class="form-control" placeholder="Buy URL">
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

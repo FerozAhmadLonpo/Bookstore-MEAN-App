@@ -11,23 +11,31 @@ var bookSchema = mongoose.Schema({
     required: true
   },
   description: {
-    type: String
+    type: String,
+    required: true
+
   },
   author: {
     type: String,
     required: true
   },
   publisher: {
-    type: String
+    type: String,
+    required: true
+
   },
   pages: {
-    type: String
+    type: String,
+    required: true
+
   },
   image_url: {
     type: String
   },
   buy_url: {
-    type: String
+    type: String,
+    required: true
+
   },
   create_date: {
     type: Date,

@@ -1,0 +1,55 @@
+<button [routerLink]="['/details',book._id]" routerLinkActive="router-link-active"
+  class="btn-secondary m-2 px-3 text-lg-center">Go
+  Back</button>
+
+<div class="card">
+  <div class="card-header bg-primary mb-2">
+    <h3 class="card-title text-white">Edit Book</h3>
+  </div>
+  <hr>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-12">
+        <form #bookForm="ngForm" (ngSubmit)="onUpdateSubmit()" *ngIf="book">
+
+          <div class="form-group">
+            <label>Title</label>
+            <input type="text" [(ngModel)]="book.title" name="title" class="form-control" value="{{book.title}}">
+          </div>
+          <div class="form-group">
+            <label>Genre</label>
+            <input type="text" class="form-control" [(ngModel)]="book.genre" name="genre" value="{{book.genre}}">
+          </div>
+          <div class="form-group">
+            <label>Author</label>
+            <input type="text" [(ngModel)]="book.author" name="author" class="form-control" value="{{book.author}}">
+          </div>
+          <div class="form-group">
+            <label>Publisher</label>
+            <input type="text" [(ngModel)]="book.publisher" name="publisher" class="form-control"
+              value="{{book.publisher}}">
+          </div>
+          <div class="from-group">
+            <label>Pages</label>
+            <input type="text" [(ngModel)]="book.pages" name="pages" class="form-control" value="{{book.pages}}">
+          </div>
+          <div class="form-group">
+            <label>Description</label>
+            <textarea class="form-control" [(ngModel)]="book.description" name="description"
+              value="{{book.description}}"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Image URL</label>
+            <input type="text" [(ngModel)]="book.image_url" name="image_url" class="form-control"
+              value="{{book.image_url}}">
+          </div>
+          <div class="form-group">
+            <label>Buy URL</label>
+            <input type="text" [(ngModel)]="book.buy_url" name="buy_url" class="form-control" value="{{book.buy_url}}">
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

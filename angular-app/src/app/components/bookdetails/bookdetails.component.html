@@ -1,0 +1,32 @@
+<button [routerLink]="['/books']" routerLinkActive="router-link-active" class="btn-secondary m-2 px-3 text-lg-center">Go
+  Back</button>
+
+<div class="card card-body" *ngIf="book">
+  <div class="bg-secondary p-2">
+    <h2 class="card-title text-white">{{book.title}}</h2>
+  </div>
+
+  <hr>
+  <div class="row">
+    <div class="col-md-4">
+      <img [src]="book.image_url" alt="image loading">
+    </div>
+    <div class="col-md-8">
+      <p>{{book.description}}</p>
+      <ul class="list-group">
+        <li class="list-group-item">Genre: {{book.genre}}</li>
+        <li class="list-group-item">Author:{{book.author}}</li>
+        <li class="list-group-item">Publisher: {{book.publisher}}</li>
+        <li class="list-group-item">Pages: {{book.pages}}</li>
+      </ul>
+      <br>
+      <a target="blank" href="{{book.buy_url}}" class="btn btn-primary font-weight-bolder">Buy on Amazon</a>
+    </div>
+  </div>
+  <hr>
+  <div class="ml-auto">
+    <a [routerLink]="['/edit', book._id]" routerLinkActive="router-link-active" class="btn btn-secondary mr-2">Edit
+      Book</a>
+    <a (click)="removeBook(book._id)" class="btn btn-danger">Delete Book</a>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+.nav-link {
+  font-size: 1.3rem;
+  display: block;
+  box-shadow: 1px 5px 10px rgba(139, 127, 127, 0.8);
+  /* color: #ffffff; */
+}
+.nav-link:hover {
+  background: #696363;
+}
+.navbar-brand {
+  font-size: 2rem;
+}
