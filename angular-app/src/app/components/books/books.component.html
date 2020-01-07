@@ -1,25 +1,25 @@
 <div class=" card card-body mt-2">
-  <div class="bg-info p-3 text-center">
+  <div class="bg-success p-3 text-center">
     <h2 class="card-title text-white">Latest Books</h2>
   </div>
   <hr>
   <div class=" row">
 
     <div class="col-md-6" *ngFor="let book of books">
-      <div class="row">
+      <div class="row p-3 ">
 
-        <div class="col-md-6 ">
+        <div class="col-md-6 box">
           <h4>{{book.title}}</h4>
           <p> {{book.description}}</p>
           <button (click)="showDetails(book._id)" class="btn btn-primary">View
             Details</button>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 box">
           <img class="thummbnail" [src]="book.image_url" alt="image loading">
         </div>
 
       </div>
-
+      <hr>
     </div>
   </div>
 </div>

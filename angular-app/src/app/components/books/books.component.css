@@ -1,3 +1,8 @@
-.bg-info{
+.bg-success {
   border-radius: 1rem;
+}
+
+.box {
+  height: 100%;
+  background: #f8f8f8;
 }

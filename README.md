@@ -1,14 +1,16 @@
 ## Bookstore
 
-**Bookstore** is a simple web application which includes Nodejs Express RESTful API server Using MongoDB
+**Bookstore** is a **MEAN** Stack web application.
 
 ## Usage
 
 ```bash
    npm install
 
-   nodemon
+   npm start     # to run the backend in root folder which runs on port 3000
+   ng serve    # to run the frontend in angular-src which runs on port 4200 
+   ng build     # to build the app in client folder
 ```
 
-## Notes
-I will be adding a front end to this Application using Angular 8 in the near future
+## Note
+Visit localhost:4200 to see the application up and running

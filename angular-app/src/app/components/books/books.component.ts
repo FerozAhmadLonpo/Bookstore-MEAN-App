@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { BooksService } from "../../services/books.service";
 import { Router, ActivatedRoute } from "@angular/router";
-import { IBook } from 'src/app/IBook';
+import { IBook } from "src/app/IBook";
 
 @Component({
   selector: "app-books",
@@ -9,6 +9,7 @@ import { IBook } from 'src/app/IBook';
   styleUrls: ["./books.component.css"]
 })
 export class BooksComponent implements OnInit {
+  photoPath: "assets/img/pic1.jpg";
   books: IBook[];
   constructor(
     private booksService: BooksService,
