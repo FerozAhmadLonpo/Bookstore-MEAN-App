@@ -3,7 +3,8 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { BooksService } from "src/app/services/books.service";
 import { NgForm } from "@angular/forms";
 import { ValidateService } from "src/app/services/validate.service";
-import { IBook } from 'src/app/IBook';
+import { IBook } from "src/app/IBook";
+import { FlashMessagesService } from "angular2-flash-messages";
 
 @Component({
   selector: "app-editbook",
@@ -11,15 +12,15 @@ import { IBook } from 'src/app/IBook';
   styleUrls: ["./editbook.component.css"]
 })
 export class EditbookComponent implements OnInit {
-   id:any;
-  validationFailed: boolean = false;
+  id: any;
   book: IBook;
 
   constructor(
     private bookService: BooksService,
     private route: ActivatedRoute,
     private router: Router,
-    private validateService: ValidateService
+    private validateService: ValidateService,
+    private flashMessages: FlashMessagesService
   ) {}
 
   ngOnInit() {
@@ -31,11 +32,31 @@ export class EditbookComponent implements OnInit {
   }
 
   onUpdateSubmit() {
-    const newBook:IBook = Object.assign({} ,this.book)
+    // Required Fields
+    if (!this.validateService.validateBook(this.book)) {
+      this.flashMessages.show("Please fill in all fields", {
+        cssClass: "alert-danger",
+        timeout: 4000
+      });
+      this.router.navigate(["/add"]);
+      return false;
+    }
+    const newBook: IBook = Object.assign({}, this.book);
     this.bookService.updateBook(this.id, newBook).subscribe(book => {
       if (book != null) {
+        this.flashMessages.show("Successfully Edited The Book", {
+          cssClass: "alert-success",
+          timeout: 4000
+        });
         this.router.navigate(["/books"]);
       } else {
+        this.flashMessages.show(
+          "Something went wrong, failed to Edit The Book",
+          {
+            cssClass: "alert-danger",
+            timeout: 4000
+          }
+        );
         this.router.navigate(["/edit"]);
       }
     });

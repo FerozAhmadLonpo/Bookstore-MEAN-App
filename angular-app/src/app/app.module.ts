@@ -1,6 +1,7 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
+import { FlashMessagesModule } from "angular2-flash-messages";
 import { HttpClientModule } from "@angular/common/http";
 
 import { RouterModule, Routes } from "@angular/router";
@@ -17,7 +18,7 @@ import { BooksService } from "./services/books.service";
 import { ValidateService } from "./services/validate.service";
 
 const routes: Routes = [
-  { path: "", component: BooksComponent },
+  { path: "", redirectTo:'/books', pathMatch:'full' },
   { path: "books", component: BooksComponent },
   { path: "details/:id", component: BookdetailsComponent },
   { path: "add", component: AddbookComponent },
@@ -38,7 +39,8 @@ const routes: Routes = [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    FlashMessagesModule.forRoot()
   ],
   providers: [BooksService, ValidateService],
   bootstrap: [AppComponent]

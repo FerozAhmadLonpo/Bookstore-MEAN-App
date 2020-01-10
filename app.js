@@ -12,6 +12,7 @@ Book = require('./models/book');
 const app = express();
 
 // Connect to database
+mongoose.set('useFindAndModify', false);
 mongoose.connect('mongodb://localhost/bookstore', { useNewUrlParser: true, useUnifiedTopology: true });
 let db = mongoose.connection;
 

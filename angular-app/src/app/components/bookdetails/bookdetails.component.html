@@ -1,4 +1,4 @@
-<button [routerLink]="['/books']" routerLinkActive="router-link-active" class="btn-secondary m-2 px-3 text-lg-center">Go
+<button [routerLink]="['/books']" routerLinkActive="router-link-active" class="btn-secondary m-2 px-3 text-center">Go
   Back</button>
 
 <div class="card card-body" *ngIf="book">
@@ -12,7 +12,7 @@
       <img [src]="book.image_url" alt="image loading">
     </div>
     <div class="col-md-8">
-      <p>{{book.description}}</p>
+      <p class="lead">{{book.description}}</p>
       <ul class="list-group">
         <li class="list-group-item">Genre: {{book.genre}}</li>
         <li class="list-group-item">Author:{{book.author}}</li>

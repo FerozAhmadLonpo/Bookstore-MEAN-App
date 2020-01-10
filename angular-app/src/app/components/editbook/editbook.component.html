@@ -1,5 +1,5 @@
 <button [routerLink]="['/details',book._id]" routerLinkActive="router-link-active"
-  class="btn-secondary m-2 px-3 text-lg-center">Go
+  class="btn-secondary m-2 px-3 text-center">Go
   Back</button>
 
 <div class="card">
@@ -47,7 +47,7 @@
             <label>Buy URL</label>
             <input type="text" [(ngModel)]="book.buy_url" name="buy_url" class="form-control" value="{{book.buy_url}}">
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary">Save Changes</button>
         </form>
       </div>
     </div>

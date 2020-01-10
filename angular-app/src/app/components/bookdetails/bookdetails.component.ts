@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { BooksService } from "src/app/services/books.service";
 import { from } from "rxjs";
 import { IBook } from "src/app/IBook";
+import { FlashMessagesService } from "angular2-flash-messages";
 
 @Component({
   selector: "app-bookdetails",
@@ -14,7 +15,8 @@ export class BookdetailsComponent implements OnInit {
   constructor(
     private booksService: BooksService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private flashMessages: FlashMessagesService
   ) {}
 
   ngOnInit() {
@@ -33,8 +35,22 @@ export class BookdetailsComponent implements OnInit {
 
   removeBook(id) {
     this.booksService.deleteBook(id).subscribe(book => {
-      if (book != null) this.router.navigate(["/books"]);
-      else this.router.navigate(["/details/" + id]);
+      if (book != null) {
+        this.flashMessages.show("Successfully Deleted A Book", {
+          cssClass: "alert-success",
+          timeout: 4000
+        });
+        this.router.navigate(["/books"]);
+      } else {
+        this.flashMessages.show(
+          "Something went wrong, failed to Delete The Book",
+          {
+            cssClass: "alert-danger",
+            timeout: 4000
+          }
+        );
+        this.router.navigate(["/details/" + id]);
+      }
     });
   }
 }

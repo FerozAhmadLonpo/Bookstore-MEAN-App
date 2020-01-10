@@ -78,5 +78,5 @@ module.exports.updateBook = function (id, book, options, callback) {
 //Delete Book
 module.exports.removeBook = function (id, callback) {
   var query = { _id: id }
-  Book.remove(query, callback);
+  Book.deleteOne(query, callback);
 }
